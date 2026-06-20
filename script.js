@@ -40,6 +40,10 @@ if (container) {
   const spaced = removed.replace(/,/g, '   ');
   bookElement.textContent = spaced;
   bookElement.style.backgroundColor = "blue";
+  bookElement.style.justifySelf = "center";
+  bookElement.style.alignContent = "center";
+  bookElement.style.padding = "20px";
+  bookElement.style.height= "50px";
   container.append(bookElement);
 
   const button = document.createElement('button');
@@ -50,14 +54,6 @@ if (container) {
   button.style.justifySelf = "center";
   container.append(button);
 
-  const checkRead = document.createElement ('input');
-  checkRead.type = "checkbox";
-  checkRead.name = "isRead";
-  checkRead.id = "isRead" + newBook.id;
-  checkRead.value = "true";
-  checkRead.checked = newBook.read;
-  container.append(checkRead);
-
   const label = document.createElement ('label');
   label.htmlFor = "isRead";
   label.style.justifySelf = "center";
@@ -65,6 +61,14 @@ if (container) {
 
   const labelText = document.createTextNode("Read?");
   label.appendChild(labelText);
+
+  const checkRead = document.createElement ('input');
+  checkRead.type = "checkbox";
+  checkRead.name = "isRead";
+  checkRead.id = "isRead" + newBook.id;
+  checkRead.value = "true";
+  checkRead.checked = newBook.read;
+  container.append(checkRead);
 
   checkRead.addEventListener('change', (e) =>{
     newBook.read = !newBook.read;
